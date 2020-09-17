@@ -32,5 +32,18 @@ def fitness(password, test_word):
             score +=1
     return score/ (len(password) + len_score) * 100
 
+def compute_performace(population, password):
+    performance_list = []
+
+    for individual in population:
+        score = fitness(password, individual)
+
+        if score > 0:
+            pred_len = len(individual)
+        performance_list.append(individual, pred_len)
+
+    population_sorted = sorted(performance_list, key=lambda x:x[1], reverse=True)
+
+    return population_sorted, pred_len
 
 fitness('abcdE', 'abcde')
