@@ -46,4 +46,13 @@ def compute_performace(population, password):
 
     return population_sorted, pred_len
 
+def select_survivors(population_sorted, best_sample, lucky_few, password_len):
+    next_generation = []
+
+    for i in range(best_sample):
+        if population_sorted[i][1] > 0:
+            next_generation.append(population_sorted[i][0])
+
+    lucky_survivors = random.sample(population_sorted, k=lucky_few)
+    
 fitness('abcdE', 'abcde')
