@@ -166,4 +166,13 @@ def create_child(individual1, individual2):
             child += individual2[i]
     return child
 
+def create_children(parents, n_child):
+    next_population = []
+    for i in range(int(len(parents)/2)):
+        for j in range(n_child):
+            next_population.append(create_child(parents[i], parents[len(parents) - 1 - i]))
+    return next_population
+
+children = create_children(survivors, 5)
+
 
